@@ -1,4 +1,4 @@
-arr = [278, 512, 555, 987]
+mailbox_arr = [278, 512, 555, 987]
 
 print("*" * 5 + " Mail Delivery Service " + "*" * 5)
 print("Welcome to the Mail Delivery Service!")
@@ -11,18 +11,18 @@ x = int(input("What mailbox number is yours? "))
 # if present, else returns -1
 
 
-def binarySearch(arr, l, r, x):
+def binarySearch(mailbox_arr, l, r, x):
 
 	while l <= r:
 
 		mid = l + (r - l) // 2
 
 		# Check if x is present at mid
-		if arr[mid] == x:
+		if mailbox_arr[mid] == x:
 			return mid
 
 		# If x is greater, ignore left half
-		elif arr[mid] < x:
+		elif mailbox_arr[mid] < x:
 			l = mid + 1
 
 		# If x is smaller, ignore right half
@@ -34,9 +34,9 @@ def binarySearch(arr, l, r, x):
 	return -1
 
 # Function call
-result = binarySearch(arr, 0, len(arr)-1, x)
+result = binarySearch(mailbox_arr, 0, len(mailbox_arr)-1, x)
 
 if result != -1:
-	print("Element is present at index % d" % result)
+	print("You have mail in your mailbox at index % d" % result)
 else:
-	print("Element is not present in array")
+	print("You do not have any mail in your mailbox")
