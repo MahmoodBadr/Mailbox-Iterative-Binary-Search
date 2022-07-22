@@ -1,42 +1,43 @@
+'''
+Author: Mahmood Badr
+Date: July 21, 2022
+Title: Mailbox Iterative Binary Search
+'''
+
 mailbox_arr = [278, 512, 555, 987]
 
 print("*" * 5 + " Mail Delivery Service " + "*" * 5)
 print("Welcome to the Mail Delivery Service!")
-x = int(input("What mailbox number is yours? "))
 
-# Python3 code to implement iterative Binary
-# Search.
+# Acquiring user input
+mailbox_num = int(input("What mailbox number is yours? "))
 
-# It returns location of x in given array arr
-# if present, else returns -1
-
-
-def binarySearch(mailbox_arr, l, r, x):
+def iterative_mailbox_binary_search(mailbox_arr, l, r, mailbox_num):
 
 	while l <= r:
 
 		mid = l + (r - l) // 2
 
-		# Check if x is present at mid
-		if mailbox_arr[mid] == x:
+		# Determining if the mailbox number is at mid
+		if mailbox_arr[mid] == mailbox_num:
 			return mid
 
-		# If x is greater, ignore left half
-		elif mailbox_arr[mid] < x:
+		# Should the mailbox number be greater, then the left half is ignored
+		elif mailbox_arr[mid] < mailbox_num:
 			l = mid + 1
 
-		# If x is smaller, ignore right half
+		# Should the mailbox number be lesser, then the right half is ignored
 		else:
 			r = mid - 1
 
-	# If we reach here, then the element
-	# was not present
+	# Should the mailbox number be neither, then there is no mail (no number present in array)
 	return -1
 
-# Function call
-result = binarySearch(mailbox_arr, 0, len(mailbox_arr)-1, x)
+# Executing the iterative binary search function
+result = iterative_mailbox_binary_search(mailbox_arr, 0, len(mailbox_arr)-1, mailbox_num)
 
+# Presenting results to user
 if result != -1:
-	print("You have mail in your mailbox at index % d" % result)
+	print("You have mail in your mailbox at index% d" % result)
 else:
 	print("You do not have any mail in your mailbox")
